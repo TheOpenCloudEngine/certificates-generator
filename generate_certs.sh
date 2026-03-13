@@ -21,17 +21,17 @@
 #==============================================================================
 
 # 인증서 Subject 정보
-COUNTRY="KR"                        # C  - 국가 코드
-STATE="Gyeonggi-do"                 # ST - 시/도
-LOCALITY="Seongnam-si"              # L  - 도시
-ORGANIZATION="Open Cloud Engine Community"            # O  - 조직명
-ORG_UNIT="Platform Engineering"          # OU - 부서명
+COUNTRY="KR"                                # C  - 국가 코드
+STATE="Gyeonggi-do"                         # ST - 시/도
+LOCALITY="Yongin-si"                        # L  - 도시
+ORGANIZATION="Open Cloud Engine Community"  # O  - 조직명
+ORG_UNIT="Platform Engineering"             # OU - 부서명
 
 # 도메인 정보
 DOMAIN="opencloudengine.org"                # 호스트명에 붙는 기본 도메인
 
 # CA 설정
-CA_CN="Open Cloud Engine Community CA"       # CA의 Common Name
+CA_CN="Open Cloud Engine Community CA"      # CA의 Common Name
 CA_DAYS=3650                        # CA 인증서 유효기간 (일)
 CA_KEY_BITS=4096                    # CA RSA 키 크기
 
