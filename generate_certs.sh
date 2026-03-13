@@ -65,10 +65,8 @@ HOSTS_STRING=$(cat ${HOSTS_FILE} | tr '\n' ',' | sed 's/,$//')
 echo "============================================================"
 echo " 인증서 생성 스크립트"
 echo "============================================================"
-echo " 조직 정보: C=${COUNTRY}, ST=${STATE}, L=${LOCALITY}"
-echo "            O=${ORGANIZATION}, OU=${ORG_UNIT}"
-echo " 도메인:    ${DOMAIN}"
-echo " 출력 디렉토리: ${HOSTS_STRING}"
+echo " 조직 정보: C=${COUNTRY}, ST=${STATE}, L=${LOCALITY}, O=${ORGANIZATION}, OU=${ORG_UNIT}"
+echo " 도메인: ${DOMAIN}"
 echo "============================================================"
 
 #==============================================================================
@@ -124,7 +122,7 @@ fi
 echo ""
 echo "[2/3] 호스트별 인증서 생성 중..."
 
-for HOST in "${HOSTS}"; do
+for HOST in "${HOSTS_STRING}"; do
 
     # FQDN 구성: 이미 도메인이 포함된 경우 그대로 사용
     if [[ "$HOST" =~ \."$DOMAIN"$ ]]; then
