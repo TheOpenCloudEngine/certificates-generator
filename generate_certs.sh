@@ -135,7 +135,8 @@ for HOST in "${HOSTS}"; do
 
     HOST_DIR="${OUTPUT_DIR}/${HOST}"
     mkdir -p "${HOST_DIR}"
-    echo "  -- 호스트별 디렉토리를 생성합니다. 디렉토리:  ${HOST_DIR}"
+    echo "  -- FQDN :  ${FQDN}"
+    echo "  -- 호스트 디렉토리:  ${HOST_DIR}"
 
     HOST_KEY="${HOST_DIR}/${HOST}.key"
     HOST_CSR="${HOST_DIR}/${HOST}.csr"
