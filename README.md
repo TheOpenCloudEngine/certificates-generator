@@ -438,3 +438,46 @@ Certificate:
     - JKS 변환: openssl pkcs12 → keytool importkeystore
     - CA를 JDK truststore(jssecacerts)에 등록 : keytool -importcert -alias opencloudengine.org -file ./certs/ca/ca.crt -keystore <JAVA_HOME>/lib/security/cacerts -storepass changeit
 ```
+
+실행후 디렉토리 및 파일의 구조는 다음과 같습니다.
+
+```
+.
+├── LICENSE
+├── README.md
+├── certs
+│   ├── ca
+│   │   ├── ca.crt
+│   │   ├── ca.key
+│   │   └── ca.srl
+│   ├── cm-server
+│   │   ├── cm-server-full.pem
+│   │   ├── cm-server.crt
+│   │   ├── cm-server.csr
+│   │   ├── cm-server.ext
+│   │   ├── cm-server.key
+│   │   └── cm-server.pem
+│   ├── node01
+│   │   ├── node01-full.pem
+│   │   ├── node01.crt
+│   │   ├── node01.csr
+│   │   ├── node01.ext
+│   │   ├── node01.key
+│   │   └── node01.pem
+│   ├── node02
+│   │   ├── node02-full.pem
+│   │   ├── node02.crt
+│   │   ├── node02.csr
+│   │   ├── node02.ext
+│   │   ├── node02.key
+│   │   └── node02.pem
+│   └── node03
+│       ├── node03-full.pem
+│       ├── node03.crt
+│       ├── node03.csr
+│       ├── node03.ext
+│       ├── node03.key
+│       └── node03.pem
+├── generate_certs.sh
+└── hosts.txt
+```
