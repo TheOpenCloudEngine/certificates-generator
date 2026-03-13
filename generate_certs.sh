@@ -267,7 +267,8 @@ echo "   ${OUTPUT_DIR}/"
 echo "   ├── ca/"
 echo "   │   ├── ca.key          (CA 개인키 - 안전하게 보관)"
 echo "   │   └── ca.crt          (CA 인증서 - 클라이언트에 배포)"
-for HOST in "${HOSTS[@]}"; do
+for HOST in $HOSTS
+do
 echo "   ├── ${HOST}/"
 echo "   │   ├── ${HOST}.key     (서버 개인키)"
 echo "   │   ├── ${HOST}.crt     (서버 인증서)"
