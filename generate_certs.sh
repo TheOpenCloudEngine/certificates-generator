@@ -28,8 +28,8 @@ ORGANIZATION="Open Cloud Engine Community"  # O  - 조직명
 ORG_UNIT="Platform Engineering"             # OU - 부서명
 
 # 도메인 정보
-DOMAIN="opencloudengine.org"                # 호스트명에 붙는 기본 도메인
-WILDCARD="*.${DOMAIN}"            # 와일드카드 도메인
+DOMAIN="opencloudengine.org"        # 호스트명에 붙는 기본 도메인
+WILDCARD="*.${DOMAIN}"              # 와일드카드 도메인
 
 # CA 설정
 CA_CN="Open Cloud Engine Community CA"      # CA의 Common Name
