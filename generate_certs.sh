@@ -13,7 +13,7 @@
 # 사용법:
 #   1. hosts.txt 파일에 호스트명을 한 줄에 하나씩 기입
 #   2. 아래 변수 섹션에서 조직 정보 및 도메인 설정
-#   3. ./generate_certs.sh 실행
+#   3. ./generate_certs.sh 실행  (sh generate_certs.sh 사용금지)
 ###############################################################################
 
 #==============================================================================
@@ -135,6 +135,7 @@ for HOST in "${HOSTS}"; do
 
     HOST_DIR="${OUTPUT_DIR}/${HOST}"
     mkdir -p "${HOST_DIR}"
+    echo "  -- 호스트별 디렉토리를 생성합니다. 디렉토리:  ${HOST_DIR}"
 
     HOST_KEY="${HOST_DIR}/${HOST}.key"
     HOST_CSR="${HOST_DIR}/${HOST}.csr"
