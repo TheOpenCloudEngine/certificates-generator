@@ -127,7 +127,7 @@ echo "[2/3] 호스트별 인증서 생성 중..."
 for HOST in "${HOSTS}"; do
 
     # FQDN 구성: 이미 도메인이 포함된 경우 그대로 사용
-    if [[ "${HOST}" == *.* ]]; then
+    if [[ "$HOST" =~ \."$DOMAIN"$ ]]; then
         FQDN="${HOST}"
     else
         FQDN="${HOST}.${DOMAIN}"
