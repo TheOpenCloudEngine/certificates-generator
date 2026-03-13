@@ -231,7 +231,9 @@ do
     fi
 
     # Extended Key Usage 확인
-    $(openssl x509 -in "${HOST_CERT}" -noout -text)
+        echo "    [인증서] 인증서정보 출력"
+    openssl x509 -in "${HOST_CERT}" -noout -text
+    
     EKU=$(openssl x509 -in "${HOST_CERT}" -noout -text 2>/dev/null | grep -A1 "Extended Key Usage")
     if echo "${EKU}" | grep -q "TLS Web Server Authentication" && echo "${EKU}" | grep -q "TLS Web Client Authentication"; then
         echo "    [OK] Extended Key Usage: Server + Client Auth"
