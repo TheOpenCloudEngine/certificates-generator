@@ -60,7 +60,7 @@ fi
 
 # 호스트 목록 읽기
 HOSTS=`cat ${HOSTS_FILE}`
-HOSTS_STRING=$(cat hosts.txt | tr '\n' ',' | sed 's/,$//')
+HOSTS_STRING=$(cat ${HOSTS_FILE} | tr '\n' ',' | sed 's/,$//')
 
 echo "============================================================"
 echo " 인증서 생성 스크립트"
@@ -68,7 +68,7 @@ echo "============================================================"
 echo " 조직 정보: C=${COUNTRY}, ST=${STATE}, L=${LOCALITY}"
 echo "            O=${ORGANIZATION}, OU=${ORG_UNIT}"
 echo " 도메인:    ${DOMAIN}"
-echo " 호스트 목록: ${HOSTS_STRING}"
+echo " 출력 디렉토리: ${HOSTS_STRING}"
 echo "============================================================"
 
 #==============================================================================
@@ -135,6 +135,7 @@ for HOST in "${HOSTS}"; do
 
     HOST_DIR="${OUTPUT_DIR}/${HOST}"
     mkdir -p "${HOST_DIR}"
+    echo "  -- 호스트명 :  ${HOST}"
     echo "  -- FQDN :  ${FQDN}"
     echo "  -- 호스트 디렉토리:  ${HOST_DIR}"
 
