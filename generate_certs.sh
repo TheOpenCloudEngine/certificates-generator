@@ -122,7 +122,7 @@ fi
 echo ""
 echo "[2/3] 호스트별 인증서 생성 중..."
 
-for HOST in ${HOSTS_STRING}
+for HOST in ${HOSTS}
 do
 
     # FQDN 구성: 이미 도메인이 포함된 경우 그대로 사용
@@ -210,7 +210,8 @@ echo ""
 VERIFY_PASS=0
 VERIFY_FAIL=0
 
-for HOST in "${HOSTS[@]}"; do
+for HOST in ${HOSTS}
+do
 
     if [[ "${HOST}" == *.* ]]; then
         FQDN="${HOST}"
