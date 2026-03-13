@@ -58,18 +58,9 @@ if [ ! -f "${HOSTS_FILE}" ]; then
     exit 1
 fi
 
-if ! command -v openssl &> /dev/null; then
-    echo "[ERROR] openssl이 설치되어 있지 않습니다."
-    exit 1
-fi
-
-# 호스트 목록 읽기 (빈 줄, 주석 제거)
-mapfile -t HOSTS < <(grep -v '^\s*#' "${HOSTS_FILE}" | grep -v '^\s*$' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
-
-if [ ${#HOSTS[@]} -eq 0 ]; then
-    echo "[ERROR] ${HOSTS_FILE}에 유효한 호스트명이 없습니다."
-    exit 1
-fi
+# 호스트 목록 읽기
+HOSTS=`cat ${HOSTS_FILE}`
+HOSTS_STRING=$(cat hosts.txt | tr '\n' ',' | sed 's/,$//')
 
 echo "============================================================"
 echo " 인증서 생성 스크립트"
@@ -77,8 +68,7 @@ echo "============================================================"
 echo " 조직 정보: C=${COUNTRY}, ST=${STATE}, L=${LOCALITY}"
 echo "            O=${ORGANIZATION}, OU=${ORG_UNIT}"
 echo " 도메인:    ${DOMAIN}"
-echo " 호스트 수: ${#HOSTS[@]}"
-echo " 호스트 목록: ${HOSTS[*]}"
+echo " 호스트 목록: ${HOSTS_STRING}"
 echo "============================================================"
 
 #==============================================================================
@@ -134,7 +124,7 @@ fi
 echo ""
 echo "[2/3] 호스트별 인증서 생성 중..."
 
-for HOST in "${HOSTS[@]}"; do
+for HOST in "${HOSTS}"; do
 
     # FQDN 구성: 이미 도메인이 포함된 경우 그대로 사용
     if [[ "${HOST}" == *.* ]]; then
